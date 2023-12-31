@@ -1,6 +1,19 @@
-/* The official code that ACTUALLY works to control my wired Arduino-based RC car. It uses the OSEPP Motor sheild and the Adafruit Motor Sheild library, which is depricated but is the library required to use my sheild. I created this program in VS Code using PlatformIO.
+/* This code controls my wired Arduino-based RC car. It uses the OSEPP Motor sheild and the Adafruit Motor Sheild library to drive 4 DC motors based on inputs on a wired controller.
 Be sure to use an Arduino MEGA 2560 so there's enough pins for everything.
-Created by Eric (esTech) in 2023 */
+
+Created by Eric (esTech) in 2023 
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see https://www.gnu.org/licenses/.
+*/
 
 // Import libraries
 #include <Arduino.h> // Because I used PlatformIO, I have to import the Arduino library.
