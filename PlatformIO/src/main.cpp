@@ -31,6 +31,14 @@ AF_DCMotor br(4);
 #define leftButton 52 // Left pin is red
 #define rightButton 53 // Right pin is yellow
 
+// Define LED pins:
+#define flLED 49
+#define frLED 48
+#define tflLED 47
+#define tfrLED 46
+#define tblLED 45
+#define tbrLED 44
+
 // Button state variables
 int fwdButtonState = 0;
 int backButtonState = 0;
@@ -45,6 +53,13 @@ void setup() {
   pinMode(leftButton, INPUT);
   pinMode(rightButton, INPUT);
   
+  // Set LED pins as outputs
+  pinMode(flLED, OUTPUT);
+  pinMode(frLED, OUTPUT);
+  pinMode(tflLED, OUTPUT);
+  pinMode(tfrLED, OUTPUT);
+  pinMode(tblLED, OUTPUT);
+  pinMode(tbrLED, OUTPUT);
     
   // Set motors' default speed
   fl.setSpeed(200);
@@ -64,14 +79,32 @@ void loop() {
   // Move based on button states
   if (fwdButtonState == HIGH) {
     moveForward();
+    digitalWrite(flLED, HIGH);
+    digitalWrite(frLED, HIGH);
+    digitalWrite(tflLED, HIGH);
+    digitalWrite(tfrLED, HIGH);
   } else if (backButtonState == HIGH) {
     moveBackward();
+    digitalWrite(tblLED, HIGH);
+    digitalWrite(tbrLED, HIGH);
   } else if (leftButtonState == HIGH) {
     moveLeft();
+    digitalWrite(flLED, HIGH);
+    digitalWrite(tflLED, HIGH);
+    digitalWrite(tblLED, HIGH);
   } else if (rightButtonState == HIGH) {
     moveRight();
+    digitalWrite(frLED, HIGH);
+    digitalWrite(tfrLED, HIGH);
+    digitalWrite(tbrLED, HIGH);
   } else {
     moveStop();
+    digitalWrite(flLED, LOW);
+    digitalWrite(frLED, LOW);
+    digitalWrite(tflLED, LOW);
+    digitalWrite(tfrLED, LOW);
+    digitalWrite(tblLED, LOW);
+    digitalWrite(tbrLED, LOW);
   }
 
 }
